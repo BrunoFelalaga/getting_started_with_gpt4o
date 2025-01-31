@@ -49,8 +49,9 @@ Responding to philosophical questions in pirate vernacular during a storm.
 ## Usage
 
 1. Set up your OpenAI/Azure credentials
-2. Run the notebook cells sequentially
-3. Experiment with different roles and prompts
+    -  make sure your keys are valid and accessible in your environment
+3. Run the notebook cells sequentially
+4. Experiment with different roles and prompts
 
 ## Requirements
 - Python 3.x
