@@ -3,6 +3,7 @@ import os
 import openai
 from openai import AzureOpenAI
 
+# set up the client for both azure or openai
 def setup_client(vendor='openAI', api_key=None, azure_endpoint=None):
     if vendor == 'azure':
         return AzureOpenAI(
@@ -16,6 +17,7 @@ def setup_client(vendor='openAI', api_key=None, azure_endpoint=None):
     else:
         raise ValueError('Unknown AI API')
 
+# using chat completions 
 def get_completion(client, system_prompt, user_prompt, model="gpt-4", temperature=0.2):
     completion = client.chat.completions.create(
         model=model,
@@ -28,8 +30,8 @@ def get_completion(client, system_prompt, user_prompt, model="gpt-4", temperatur
     return completion.choices[0].message.content
 
 def main():
-    # Configure your API key here
-    api_key = userdata.get('OpenAIAPIKey2') #os.getenv('OPENAI_API_KEY')
+    # Configure your API key here, make sure your keys are valid and in your environment
+    api_key = os.getenv('OPENAI_API_KEY')
     client = setup_client(api_key=api_key)
     
     # Example prompts
